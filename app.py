@@ -11,7 +11,7 @@ html = """
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Dhani Mehanda Shooting Volleyball Club</title>
+<title>Rao Tula Ram Shooting Volleyball Ground | Dhani Mehanda</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -22,12 +22,51 @@ html = """
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#0f172a;
+    background:#0b1120;
     color:white;
     overflow-x:hidden;
+}
+
+/* Animated Background */
+
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.bg span{
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:rgba(250,204,21,0.15);
+    animation:move 20s linear infinite;
+    bottom:-100px;
+    border-radius:50%;
+}
+
+.bg span:nth-child(1){left:10%;width:80px;height:80px;}
+.bg span:nth-child(2){left:25%;width:50px;height:50px;animation-duration:12s;}
+.bg span:nth-child(3){left:40%;width:120px;height:120px;}
+.bg span:nth-child(4){left:60%;width:70px;height:70px;}
+.bg span:nth-child(5){left:80%;width:100px;height:100px;}
+
+@keyframes move{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-1200px) rotate(720deg);
+        opacity:0;
+    }
 }
 
 /* Navbar */
@@ -37,43 +76,43 @@ nav{
     justify-content:space-between;
     align-items:center;
     padding:25px 8%;
-    background:rgba(0,0,0,0.5);
-    backdrop-filter:blur(10px);
     position:fixed;
     width:100%;
     top:0;
     z-index:1000;
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(12px);
 }
 
 .logo{
-    font-size:35px;
+    font-size:34px;
     font-weight:800;
     color:#facc15;
 }
 
 nav ul{
     display:flex;
-    gap:30px;
+    gap:35px;
     list-style:none;
 }
 
 nav ul li a{
-    text-decoration:none;
     color:white;
-    font-size:18px;
+    text-decoration:none;
     transition:0.3s;
+    font-size:18px;
 }
 
 nav ul li a:hover{
     color:#facc15;
 }
 
-/* Hero Section */
+/* Hero */
 
 .hero{
-    height:100vh;
+    min-height:100vh;
     background:
-    linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.8)),
+    linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
     url('https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=2070&auto=format&fit=crop') center/cover;
     display:flex;
     justify-content:center;
@@ -83,21 +122,22 @@ nav ul li a:hover{
 }
 
 .hero-content{
-    max-width:1000px;
+    max-width:1100px;
     animation:fadeIn 2s ease;
 }
 
 .hero h1{
-    font-size:80px;
+    font-size:85px;
     color:#facc15;
-    margin-bottom:25px;
+    margin-bottom:30px;
+    line-height:1.2;
 }
 
 .hero p{
-    font-size:24px;
-    line-height:1.8;
+    font-size:26px;
     color:#e2e8f0;
-    margin-bottom:40px;
+    line-height:2;
+    margin-bottom:45px;
 }
 
 .btn{
@@ -117,12 +157,12 @@ nav ul li a:hover{
     background:white;
 }
 
-/* Animation */
+/* Fade Animation */
 
 @keyframes fadeIn{
     from{
         opacity:0;
-        transform:translateY(50px);
+        transform:translateY(60px);
     }
 
     to{
@@ -131,17 +171,17 @@ nav ul li a:hover{
     }
 }
 
-/* Sections */
+/* Common */
 
 section{
     padding:120px 8%;
 }
 
-.section-title{
+.title{
     text-align:center;
-    font-size:55px;
+    font-size:60px;
     color:#facc15;
-    margin-bottom:70px;
+    margin-bottom:80px;
 }
 
 /* About */
@@ -149,19 +189,45 @@ section{
 .about{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:50px;
+    gap:60px;
     align-items:center;
 }
 
 .about img{
     width:100%;
     border-radius:25px;
+    transition:0.5s;
+}
+
+.about img:hover{
+    transform:scale(1.03);
 }
 
 .about-text{
     font-size:22px;
     line-height:2;
     color:#cbd5e1;
+}
+
+/* Passion Section */
+
+.passion{
+    background:linear-gradient(135deg,#111827,#1e293b);
+    padding:80px;
+    border-radius:35px;
+    text-align:center;
+}
+
+.passion h2{
+    font-size:55px;
+    color:#facc15;
+    margin-bottom:30px;
+}
+
+.passion p{
+    font-size:24px;
+    line-height:2;
+    color:#e2e8f0;
 }
 
 /* Cards */
@@ -187,12 +253,12 @@ section{
 .card h3{
     color:#facc15;
     margin-bottom:20px;
-    font-size:28px;
+    font-size:30px;
 }
 
 .card p{
+    line-height:1.9;
     color:#cbd5e1;
-    line-height:1.8;
 }
 
 /* Gallery */
@@ -205,8 +271,8 @@ section{
 
 .gallery img{
     width:100%;
-    border-radius:20px;
-    transition:0.4s;
+    border-radius:25px;
+    transition:0.5s;
 }
 
 .gallery img:hover{
@@ -229,43 +295,23 @@ section{
 }
 
 .stat h2{
-    font-size:60px;
+    font-size:65px;
     color:#facc15;
 }
 
 .stat p{
     margin-top:15px;
-    font-size:22px;
-}
-
-/* Contact */
-
-.contact{
-    background:#1e293b;
-    padding:70px;
-    border-radius:30px;
-    text-align:center;
-}
-
-.contact h2{
-    font-size:50px;
-    color:#facc15;
-    margin-bottom:30px;
-}
-
-.contact p{
-    font-size:22px;
-    margin-bottom:15px;
-    color:#cbd5e1;
+    font-size:24px;
 }
 
 /* Footer */
 
 footer{
     background:#020617;
-    padding:30px;
+    padding:40px;
     text-align:center;
     color:#94a3b8;
+    margin-top:50px;
 }
 
 /* Responsive */
@@ -273,7 +319,7 @@ footer{
 @media(max-width:900px){
 
     .hero h1{
-        font-size:45px;
+        font-size:50px;
     }
 
     .hero p{
@@ -297,15 +343,23 @@ footer{
 
 <body>
 
+<div class="bg">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
 <nav>
 
-<div class="logo">DMSVC</div>
+<div class="logo">RTR Volleyball</div>
 
 <ul>
 <li><a href="#">Home</a></li>
-<li><a href="#">Team</a></li>
+<li><a href="#">Ground</a></li>
+<li><a href="#">Players</a></li>
 <li><a href="#">Gallery</a></li>
-<li><a href="#">Achievements</a></li>
 <li><a href="#">Contact</a></li>
 </ul>
 
@@ -315,16 +369,20 @@ footer{
 
 <div class="hero-content">
 
-<h1>Dhani Mehanda Shooting Volleyball Club</h1>
+<h1>Rao Tula Ram Shooting Volleyball Ground</h1>
 
 <p>
 
-Professional Shooting Volleyball Club of Haryana.
-Training Young Players and Participating in National Level Tournaments.
+Dhani Mehanda ki mitti se nikla Haryana ka volleyball junoon.
+
+Yaha bacche, jawaan aur buzurg sab volleyball ke liye ek jaise passionate hain.
+Har sham ground par energy, crowd aur sportsmanship ka alag hi mahaul hota hai.
+
+Door door se log matches dekhne aur support karne aate hain.
 
 </p>
 
-<a href="#" class="btn">Join Our Team</a>
+<a href="#" class="btn">Welcome To Dhani Mehanda</a>
 
 </div>
 
@@ -332,19 +390,20 @@ Training Young Players and Participating in National Level Tournaments.
 
 <section>
 
-<h2 class="section-title">About Club</h2>
+<h2 class="title">About Our Ground</h2>
 
 <div class="about">
 
-<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop">
+<img src="https://lh3.googleusercontent.com/p/AF1QipO45PQL9amjaVjbCPF21TDihk4YQe6LZgR6ENEm=w203-h152-k-no">
 
 <div class="about-text">
 
-Dhani Mehanda Shooting Volleyball Club is one of the fastest growing volleyball clubs in Haryana.
+Rao Tula Ram Shooting Volleyball Ground Dhani Mehanda sirf ek ground nahi,
+balki Haryana ke volleyball lovers ki pehchaan hai.
 
-Our mission is to train young athletes with professional coaching and sports discipline.
+Yaha har roz practice hoti hai, tournaments hote hain aur gaon ke talented players ko mauka diya jata hai.
 
-We participate in district, state and national level volleyball tournaments and help players build successful sports careers.
+Yeh ground discipline, passion aur sports spirit ka symbol ban chuka hai.
 
 </div>
 
@@ -354,28 +413,48 @@ We participate in district, state and national level volleyball tournaments and 
 
 <section>
 
-<h2 class="section-title">Our Facilities</h2>
+<div class="passion">
+
+<h2>Volleyball Is Our Passion</h2>
+
+<p>
+
+Yaha ke bachon ke liye volleyball sirf game nahi — ek emotion hai.
+
+Subah practice, shaam matches aur tournament nights ka atmosphere dekhne layak hota hai.
+
+Ground par energy, crowd aur Haryana ki asli sports culture feel hoti hai.
+
+</p>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">What Makes Us Special</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>Professional Coaching</h3>
-<p>Experienced volleyball trainers with national level experience.</p>
+<h3>Village Unity</h3>
+<p>Yaha har age ke log volleyball ko support karte hain aur players ka hausla badhate hain.</p>
 </div>
 
 <div class="card">
-<h3>Daily Practice</h3>
-<p>Morning and evening volleyball training sessions.</p>
+<h3>Strong Passion</h3>
+<p>Ground par players ka passion aur dedication dekhkar bahar ke log bhi impress ho jaate hain.</p>
 </div>
 
 <div class="card">
-<h3>Tournament Support</h3>
-<p>Participation in district and national tournaments.</p>
+<h3>Tournament Atmosphere</h3>
+<p>Night tournaments aur cheering crowd is ground ki asli pehchaan hai.</p>
 </div>
 
 <div class="card">
-<h3>Fitness Training</h3>
-<p>Strength and stamina development for athletes.</p>
+<h3>Future Players</h3>
+<p>Gaon ke talented players ko training aur exposure diya jata hai.</p>
 </div>
 
 </div>
@@ -384,15 +463,15 @@ We participate in district, state and national level volleyball tournaments and 
 
 <section>
 
-<h2 class="section-title">Tournament Gallery</h2>
+<h2 class="title">Ground Gallery</h2>
 
 <div class="gallery">
 
-<img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=2070&auto=format&fit=crop">
+<img src="https://lh3.googleusercontent.com/p/AF1QipNlpYKmE-znr3AsX1SUdyGV-KLjY2lzv4dyPFlT=w203-h114-k-no">
 
-<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=2070&auto=format&fit=crop">
+<img src="https://lh3.googleusercontent.com/p/AF1QipO45PQL9amjaVjbCPF21TDihk4YQe6LZgR6ENEm=w203-h152-k-no">
 
-<img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?q=80&w=2070&auto=format&fit=crop">
+<img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF-vTk0MkLG8P-HKsNz5I8BUqMjNVEkHCWwSVLq0dX6mCraHYAzf_Zn7MRFPM3ieGjNVyYvqkX6AcSF6OfUpqhCMoJ0QrOIjY87WywF8anw_vr2BvsmWoceFsz2__CRiE2XTcsVaxSu9PY=w203-h273-k-no">
 
 </div>
 
@@ -400,43 +479,29 @@ We participate in district, state and national level volleyball tournaments and 
 
 <section>
 
-<h2 class="section-title">Our Achievements</h2>
+<h2 class="title">Our Achievements</h2>
 
 <div class="stats">
 
 <div class="stat">
-<h2>50+</h2>
+<h2>100+</h2>
 <p>Tournaments Played</p>
 </div>
 
 <div class="stat">
-<h2>20+</h2>
-<p>Trophies Won</p>
+<h2>500+</h2>
+<p>Players Connected</p>
 </div>
 
 <div class="stat">
-<h2>200+</h2>
-<p>Players Trained</p>
+<h2>1000+</h2>
+<p>Supporters</p>
 </div>
 
 <div class="stat">
-<h2>10+</h2>
-<p>State Level Players</p>
+<h2>24x7</h2>
+<p>Sports Passion</p>
 </div>
-
-</div>
-
-</section>
-
-<section>
-
-<div class="contact">
-
-<h2>Contact Us</h2>
-
-<p>📍 Dhani Mehanda, Haryana</p>
-<p>📞 +91 XXXXX XXXXX</p>
-<p>📧 volleyballclub@gmail.com</p>
 
 </div>
 
@@ -444,7 +509,7 @@ We participate in district, state and national level volleyball tournaments and 
 
 <footer>
 
-© 2026 Dhani Mehanda Shooting Volleyball Club
+© 2026 Rao Tula Ram Shooting Volleyball Ground | Dhani Mehanda Haryana
 
 </footer>
 
